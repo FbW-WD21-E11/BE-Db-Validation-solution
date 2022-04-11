@@ -65,6 +65,7 @@ Add validation to your schema based on the following criteria:
 - `name` > `english` should be **required**
 - `name` > `all languages` should have a **minimum** character count of 3
 - `name` > `all languages` should have a **maximum** character count of 24
+- `type` should be **required**
 - `base` > `HP` can **not be less** than 10 and should **default** to 20
 - `base` > `Attack` can **not be less** than 1 and should **default** to 5
 - `base` > `Defense` can **not be less** than 0 and should **default** to 1
@@ -111,7 +112,7 @@ We will create an endpoint to load all pokemon
 
 1. Create an endpoint with the path `/all`. This will be a `GET` endpoint.
 
-2. Use the endpoint to interact with the model you created in Task 7 to find all the pokemons in the collection
+2. Use the endpoint to interact with the **Pokedex** model to find all the pokemons in the collection
 
 3. Return the results to the client
 
@@ -123,8 +124,8 @@ We will create an endpoint to load a specific pokemon, based on the `name`
 
 1. Create an endpoint with the path `/name`. This will be a `GET` endpoint. The endpoint should expect a request parameter from the client, the pokemon `name`.
 
-2. Use the endpoint to interact with the model you created in Task 7 to find the pokemon by `name`. For now, default to the **english** version of the name, then:
-   - If found, return a status of `200` and the resulting movie
+2. Use the endpoint to interact with the **Pokedex** model to find the pokemon by `name`. For now, default to the **english** version of the name, then:
+   - If found, return a status of `200` and the result
    - If not found, return a status of `404` and an appropriate message
 
 > Hint: You might want to use a request parameter
@@ -137,7 +138,7 @@ We will create an endpoint to load all pokemons of a specific type
 
 1. Create an endpoint with the path `/type`. This will be a `GET` endpoint. The endpoint should expect a request parameter from the client, the pokemon `type`.
 
-2. Use the endpoint to interact with the model you created in Task 7
+2. Use the endpoint to interact with the **Pokedex** model
 
 3. Search for the pokemon based on the **type** supplied by the client
 
@@ -147,7 +148,7 @@ We will create an endpoint to load all pokemons of a specific type
 
 ## Bonus tasks
 
-### Modifying an endpoint - search for pokemon by name and language
+### Modifying an endpoint - search for pokemon by name AND language
 
 1. Modify the endpoint you created in Task 9
 
