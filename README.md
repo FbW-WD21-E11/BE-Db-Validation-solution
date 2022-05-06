@@ -31,7 +31,7 @@ Before starting these tasks install the included npm packages, by running the co
 
 2. Add your database connection details to your `.env` file, filling in the details as provided to you by MongoDB
    > Hint: The key `DB_NAME` points to the name of the database you want to connect to. Use the name `db-validation`. This will ensure that Mongoose will try and use the existing sample dataset you previously set up.
-   
+
    > Hint: The key `DB_HOST` is the **domain** of your MongoDB connection string
 
 ### Task 3 - Connecting your server to your database
@@ -118,21 +118,7 @@ We will create an endpoint to load all pokemon
 
 4. Test your endpoint
 
-### Task 9 - Creating an endpoint - search for pokemon by name
-
-We will create an endpoint to load a specific pokemon, based on the `name`
-
-1. Create an endpoint with the path `/name`. This will be a `GET` endpoint. The endpoint should expect a request parameter from the client, the pokemon `name`.
-
-2. Use the endpoint to interact with the **Pokedex** model to find the pokemon by `name`. For now, default to the **english** version of the name, then:
-   - If found, return a status of `200` and the result
-   - If not found, return a status of `404` and an appropriate message
-
-> Hint: You might want to use a request parameter
-
-> Hint: You can access parameters from the **request** object with the `params` property
-
-### Task 10 - Creating an endpoint - search for pokemon by type
+### Task 9 - Creating an endpoint - search for pokemon by type
 
 We will create an endpoint to load all pokemons of a specific type
 
@@ -144,7 +130,25 @@ We will create an endpoint to load all pokemons of a specific type
 
 4. Return the result to the client
 
-> Hint: You might want to normalize the input (make it lowercase) so that it matches the data in the collection
+> Hint: Additionally, you can normalize the input (make it lowercase) so that it matches the data in the collection
+
+### Task 10 - Creating an endpoint - search for pokemon by name
+
+> For this task, you will be searching within a subdocument
+
+We will create an endpoint to load a specific pokemon, based on the `name`
+
+1. Create an endpoint with the path `/name`. This will be a `GET` endpoint. The endpoint should expect a request parameter from the client, the pokemon `name`.
+
+2. Use the endpoint to interact with the **Pokedex** model to find the pokemon by `name`. For now, default to the **english** version of the name, then:
+   - If found, return a status of `200` and the result
+   - If not found, return a status of `404` and an appropriate message
+
+> Hint: When searching within a subdocument, you have to provide the path to the subdocument as the key. In the following example, we search for the name `"Wartortle"` within the model `Pokedex` for `"english"` subdocument of the `"name"` field;
+>
+> ```javascript
+> Pokedex.find({ "name.english": "Wartortle" })
+> ```
 
 ## Bonus tasks
 
