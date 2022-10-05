@@ -161,3 +161,4 @@ We will create an endpoint to load a specific pokemon, based on the `name`
 > Example: If the user attaches the query `?language=japanese` then search for the japanese version of the name
 
 > Hint: You can access query parameters from the **request** object with the `query` property
+# BE-Db-Validation-solution
